@@ -6,21 +6,62 @@ def contains(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
 
+    # This works but I feel like its cheating
+    # for i in range(len(text)):
+    #     if text[i:i+len(pattern)] == pattern:
+    #         return True
+    # return False
+    if(len(pattern) < 1):
+        return True
+    for i in range(len(text) - len(pattern) + 1):
+        # if the first char
+        if text[i] == pattern[0]:
+            if(check_pos(text, pattern, 0, i)):
+                return True
+    return False
+                
+def check_pos(text, pattern, position, diff):
+    # breaks the loop if we are at the end of the pattern
+    if position == len(pattern):
+        return True
+    # checks if pattern matches, and calls itself if it does
+    if text[diff + position] == pattern[position]:
+        return check_pos(text, pattern, position + 1, diff)
+    return False
+
+
+
 
 def find_index(text, pattern):
+    if(len(pattern) < 1):
+        return 0
     """Return the starting index of the first occurrence of pattern in text,
     or None if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
+    for i in range(len(text) - len(pattern) + 1):
+        # if the first char
+        if text[i] == pattern[0]:
+            if(check_pos(text, pattern, 0, i)):
+                return i
 
 
 def find_all_indexes(text, pattern):
+    if(len(pattern) < 1):
+        return list(range(len(text)))
     """Return a list of starting indexes of all occurrences of pattern in text,
     or an empty list if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
+    indexes = []
+    for i in range(len(text) - len(pattern) + 1):
+        # if the first char
+        if text[i] == pattern[0]:
+            if(check_pos(text, pattern, 0, i)):
+                indexes.append(i)
+    return indexes
 
 
 def test_string_algorithms(text, pattern):
