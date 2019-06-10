@@ -55,9 +55,9 @@ def is_palindrome_recursive(text, left=None, right=None):
         right = len(text) - 1
     pal = text.lower()
     while pal[left] not in chars:
-            left += 1
-            if left >= right:
-                return True 
+        left += 1
+        if left >= right:
+            return True 
     while pal[right] not in chars:
         right -= 1
         if right <= left: 
