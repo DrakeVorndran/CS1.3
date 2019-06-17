@@ -159,7 +159,7 @@ class LinkedList(object):
         Worst case running time: ??? under what conditions? [TODO]"""
         # TODO: Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
-        node = self.head
+        node = self.headz
         if node is None:
             raise ValueError('Item not found:{}'.format(old_item))
         while node is not None:
