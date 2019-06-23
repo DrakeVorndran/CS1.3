@@ -26,12 +26,12 @@ def is_palindrome_iterative(text):
     left = 0
     right = len(text) - 1
     is_pal = True
-    while is_pal:
-        while pal[left] not in chars:
+    while is_pal: # worst case O(n) when the string is a palindrome or if the string has no aplha chars
+        while pal[left] not in chars: # O(n) in case where the string has no alpha chars
             left += 1
             if left >= right:
                 return True 
-        while pal[right] not in chars:
+        while pal[right] not in chars: # O(n) in case where the string has no alpha chars
             right -= 1
             if right <= left: 
                 return True
@@ -46,7 +46,7 @@ def is_palindrome_iterative(text):
     # to verify that your iterative implementation passes all tests
 
 
-def is_palindrome_recursive(text, left=None, right=None):
+def is_palindrome_recursive(text, left=None, right=None):# worst case O(n) when the string is a palindrome or if the string has no aplha chars
     # TODO: implement the is_palindrome function recursively here
     if len(text) < 1:
         return True
@@ -54,11 +54,11 @@ def is_palindrome_recursive(text, left=None, right=None):
         left = 0
         right = len(text) - 1
     pal = text.lower()
-    while pal[left] not in chars:
+    while pal[left] not in chars:# O(n) in case where the string has no alpha chars
         left += 1
         if left >= right:
             return True 
-    while pal[right] not in chars:
+    while pal[right] not in chars:# O(n) in case where the string has no alpha chars
         right -= 1
         if right <= left: 
             return True

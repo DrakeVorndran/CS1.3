@@ -13,14 +13,14 @@ def contains(text, pattern):
     # return False
     if(len(pattern) < 1):
         return True
-    for i in range(len(text) - len(pattern) + 1):
+    for i in range(len(text) - len(pattern) + 1): # O(pn) where p is the length of the pattern
         # if the first char
         if text[i] == pattern[0]:
-            if(check_pos(text, pattern, 0, i)):
+            if(check_pos(text, pattern, 0, i)): # O(p) where p is the length of the pattern
                 return True
     return False
                 
-def check_pos(text, pattern, position, diff):
+def check_pos(text, pattern, position, diff): # O(p) where p is the length of the pattern
     # breaks the loop if we are at the end of the pattern
     if position == len(pattern):
         return True
@@ -40,10 +40,10 @@ def find_index(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
-    for i in range(len(text) - len(pattern) + 1):
+    for i in range(len(text) - len(pattern) + 1): # O(pn) where p is the length of the pattern
         # if the first char
         if text[i] == pattern[0]:
-            if(check_pos(text, pattern, 0, i)):
+            if(check_pos(text, pattern, 0, i)): # O(p) where p is the length of the pattern
                 return i
 
 
@@ -56,10 +56,10 @@ def find_all_indexes(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
     indexes = []
-    for i in range(len(text) - len(pattern) + 1):
+    for i in range(len(text) - len(pattern) + 1): # O(pn) where p is the length of the pattern
         # if the first char
         if text[i] == pattern[0]:
-            if(check_pos(text, pattern, 0, i)):
+            if(check_pos(text, pattern, 0, i)): # O(p) where p is the length of the pattern
                 indexes.append(i)
     return indexes
 

@@ -10,7 +10,7 @@ def linear_search(array, item):
 
 def linear_search_iterative(array, item):
   # loop over all array values until item is found
-  for index, value in enumerate(array):
+  for index, value in enumerate(array): 
     if item == value:
       return index  # found
   return None  # not found
