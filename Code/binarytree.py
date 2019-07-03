@@ -141,11 +141,11 @@ class BinarySearchTree(object):
             # TODO: Check if the given item is less than the node's data
             elif item < node.data:
                 # TODO: Descend to the node's left child
-                node = item.left()
+                node = item.left
             # TODO: Check if the given item is greater than the node's data
             elif item > node.data:
                 # TODO: Descend to the node's right child
-                node = item.right()
+                node = item.right
         # Not found
         return None
 
